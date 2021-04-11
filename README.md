@@ -37,18 +37,18 @@ This is an example of sample size calculations for a binary outcome presented in
 library(sampsizeval)
 ```
 
-Sample size required to acheive a SE of C-statistic $SE(\hat C)=0.025:$
+Sample size required to acheive a SE of C-statistic \[SE(\hat C)=0.025:\]
 ```{r}
 size_c(0.057, 0.77, 0.025^2)
 ```
 
-Sample size required to acheive a SE of the Calibration Slope $SE(\hat \beta_{CS})=0.15:$
+Sample size required to acheive a SE of the Calibration Slope \[SE(\hat \beta_{CS})=0.15:\]
 
 ```{r}
 size_cs(0.057, 0.77, 0.15^2)
 ```
 
-Sample size required to acheive a SE of the Calibration in the Large $SE(\hat \alpha_{CL})=0.15:$
+Sample size required to acheive a SE of the Calibration in the Large \[SE(\hat \alpha_{CL})=0.15:\]
 
 ```{r}
 size_cil(0.057, 0.77, 0.15^2)
