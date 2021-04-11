@@ -1,0 +1,31 @@
+Package: sampsizeval
+Title: Estimation of Required Sample Size for Validation of Risk Models for binary outcomes
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Menelaos",
+           family = "Pavlou",
+           role = c("aut", "cre"),
+           email = "m.pavlou@ucl.ac.uk",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Estimation of the required sample size to validate a risk model for
+    binary outcome.For precision-based sample size calcucation, the user is 
+    required to enter the anticipated values of the C-statistic and outcome 
+    prevalence, which can be obtained from a previous study or expert knowledge.
+    The user also needs to enter and the required precision (variance) for the 
+    C-statistic, the calibration slope and the calibration in the large. 
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Imports: 
+    stats,
+    sn,
+    MASS,
+    pracma,
+    magrittr
+URL: https://github.com/mpavlou/firstpackage
+BugReports: https://github.com/mpavlou/firstpackage/issues
