@@ -27,5 +27,5 @@ Imports:
     MASS,
     pracma,
     magrittr
-URL: https://github.com/mpavlou/firstpackage
-BugReports: https://github.com/mpavlou/firstpackage/issues
+URL: https://github.com/mpavlou/sampsizeval
+BugReports: https://github.com/mpavlou/sampsizeval/issues
