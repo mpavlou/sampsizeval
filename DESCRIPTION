@@ -6,12 +6,12 @@ Authors@R:
            family = "Pavlou",
            role = c("aut", "cre"),
            email = "m.pavlou@ucl.ac.uk",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+           comment = c(ORCID = "0000-0003-1161-1440"))
 Description: Estimation of the required sample size to validate a risk model for
-    binary outcome.For precision-based sample size calcucation, the user is 
+    binary outcomes.For precision-based sample size calcucation, the user is 
     required to enter the anticipated values of the C-statistic and outcome 
     prevalence, which can be obtained from a previous study or expert knowledge.
-    The user also needs to enter and the required precision (variance) for the 
+    The user also needs to specify the required precision (variance) for the 
     C-statistic, the calibration slope and the calibration in the large. 
 License: MIT + file LICENSE
 Encoding: UTF-8
