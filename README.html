@@ -189,13 +189,13 @@ devtools::install_github(&quot;mpavlou/sampsizeval&quot;)</code></pre>
 <h2>Example</h2>
 <p>This is an example of sample size calculations for a binary outcome presented in Section 7 of the paper[GitHub]. The anticipated C-statistic and outcome prevalence are: C=0.77 and p=0.057.</p>
 <pre class="r"><code>library(sampsizeval)</code></pre>
-<p>Sample size required to acheive a SE of C-statistic equal to 0.025</p>
+<p>Sample size required to achieve a SE of C-statistic of at most 0.025</p>
 <pre class="r"><code>size_c(0.057, 0.77, 0.025^2)</code></pre>
 <pre><code>## [1] 1599</code></pre>
-<p>Sample size required to acheive a SE of the Calibration Slope <span class="math display">\[SE(\hat \beta_{CS})=0.15\]</span></p>
+<p>Sample size required to achieve a SE of the Calibration Slope of at most 0.15:</p>
 <pre class="r"><code>size_cs(0.057, 0.77, 0.15^2)</code></pre>
 <pre><code>## [1] 847</code></pre>
-<p>Sample size required to acheive a SE of the Calibration in the Large <span class="math display">\[SE(\hat \alpha_{CL})=0.15:\]</span></p>
+<p>Sample size required to achieve a SE of the Calibration in the Large of at most 0.15:</p>
 <pre class="r"><code>size_cil(0.057, 0.77, 0.15^2)</code></pre>
 <pre><code>## [1] 881</code></pre>
 <!-- For a given precision for the estimated C-statistic, calibration slope and calibration in the large, the required sample size varies depending on the anticipated values of the  C-statistic and outcome prevalence. For example, for required precisions SE(C)=0.025, SE(CS)=0.15 and SE(CiL)=0.15, the sample size varies as follows: -->

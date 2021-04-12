@@ -109,8 +109,8 @@
 \hypertarget{sampsizeval}{%
 \section{sampsizeval}\label{sampsizeval}}
 
-The goal of \textbf{sampsizeval} is to perform sample size calculations
-for the validation of risk models.
+The purpose of \textbf{sampsizeval} is to perform sample size
+calculations for the validation of risk models for binary outcomes.
 
 \hypertarget{installation}{%
 \subsection{Installation}\label{installation}}
@@ -138,8 +138,7 @@ C-statistic and outcome prevalence are: C=0.77 and p=0.057.
 \end{Highlighting}
 \end{Shaded}
 
-Sample size required to acheive a SE of C-statistic
-\(SE(\hat C)=0.025:\)
+Sample size required to achieve a SE of C-statistic of at most 0.025
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -151,8 +150,8 @@ Sample size required to acheive a SE of C-statistic
 ## [1] 1599
 \end{verbatim}
 
-Sample size required to acheive a SE of the Calibration Slope
-\(SE(\hat \beta_{CS})=0.15:\)
+Sample size required to achieve a SE of the Calibration Slope of at most
+0.15:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -164,8 +163,8 @@ Sample size required to acheive a SE of the Calibration Slope
 ## [1] 847
 \end{verbatim}
 
-Sample size required to acheive a SE of the Calibration in the Large
-\(SE(\hat \alpha_{CL})=0.15:\)
+Sample size required to achieve a SE of the Calibration in the Large of
+at most 0.15:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -176,17 +175,5 @@ Sample size required to acheive a SE of the Calibration in the Large
 \begin{verbatim}
 ## [1] 881
 \end{verbatim}
-
-For a given precision for the estimated C-statistic, calibration slope
-and calibration in the large, the required sample size varies depending
-on the anticipated values of the C-statistic and outcome prevalence. For
-example for required precision SE(C)=0.025, SE(CS)=0.15 and
-SE(CiL)=0.15, the sample size varies as follows:
-
-\begin{figure}
-\centering
-\includegraphics{images/Figure_2_events.png}
-\caption{Paper image}
-\end{figure}
 
 \end{document}
