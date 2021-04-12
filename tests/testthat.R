@@ -1,4 +1,4 @@
 library(testthat)
-library(firstpackage)
+library(sampsizeval)
 
-test_check("firstpackage")
+test_check("sampsizeval")

@@ -1,0 +1,37 @@
+#' Check whether the formulae for mu and sigma give anticipated c and p
+#'
+#' The purpose of this function is to Check whether the values of mu and sigma
+#' correspond to the anticipated values of prevalence, p, and C-statistic, c that
+#' are arguments for the sample size calculation. These are relevant for the
+#' version of the formulae that require the use of numerical integration
+#'
+#' @param p The anticipated prevalence
+#' @param c The anticipated C-statistic
+#' @param fc The tuning factor to adjust mu and sigma when C>=0.8
+#'
+#' @return the actual prevalence and C-statistic, mu and sigma
+#' @export
+#'
+#' @examples
+#' true_values(0.1,0.8)
+actual_values <- function(p, c, fc=1) {
+  nevents<-300000
+  n       <- nevents / p
+
+  sigma_c <- sqrt(2) * stats::qnorm(c) * fc
+  mu      <- 0.5 * (2 * p - 1) * (sigma_c^2) + log(p / (1 - p))
+  sigma   <- sqrt((sigma_c^2) * (1 + p * (1 - p) * (sigma_c^2)))
+
+  eta   <- rnorm(n, mu, sigma)
+  p_est <- (1 + exp(- eta)) ^ (-1)
+  y     <- rbinom(n, 1, p_est)
+
+  cstat <- pROC::roc(y, eta, quiet = TRUE, ci = FALSE)
+  c_est <- as.vector(cstat$auc)
+
+  out   <- list("p_actual" = round(mean(y),3),
+                  "c_actual" = round(c_est,3),
+                  "mu" = round(mu,3),
+                  "sigma" = round(sigma,3))
+  return(out)
+}
