@@ -37,23 +37,38 @@ This is an example of sample size calculations for a binary outcome presented in
 library(sampsizeval)
 ```
 
-Sample size required to acheive a SE of C-statistic of at most 0.025
+Sample size required to achieve a SE of C-statistic of at most 0.025
 ```{r}
 size_c(0.057, 0.77, 0.025^2)
 ```
 
-Sample size required to acheive a SE of the Calibration Slope of at most 0.15:
+Sample size required to achieve a SE of the Calibration Slope of at most 0.15.
+
+Simple formula:
 
 ```{r}
-size_cs(0.057, 0.77, 0.15^2)
+size_cs(0.057, 0.7, 0.15^2)
 ```
 
-Sample size required to acheive a SE of the Calibration in the Large  of at most 0.15:
+Numerical integration:
 
 ```{r}
-size_cil(0.057, 0.77, 0.15^2)
+size_cs_ni(0.057, 0.7, 0.15^2)
 ```
 
+Sample size required to achieve a SE of the Calibration in the Large  of at most 0.15:
+
+Simple formula:
+
+```{r}
+size_cil(0.057, 0.7, 0.15^2)
+```
+
+Numerical integration:
+
+```{r}
+size_cil_ni(0.057, 0.7, 0.15^2)
+```
 
 <!-- For a given precision for the estimated C-statistic, calibration slope and calibration in the large, the required sample size varies depending on the anticipated values of the  C-statistic and outcome prevalence. For example, for required precisions SE(C)=0.025, SE(CS)=0.15 and SE(CiL)=0.15, the sample size varies as follows: -->
 

@@ -27,7 +27,7 @@ size_cs_ni <- function(p, c, varcs) {
   sigma   <- sqrt((sigma_c^2) * (1 + p * (1 - p) * (sigma_c^2)))
   } else {
 
-  correct <- find_mu_sigma(p, c)
+  correct <- tune_mu_sigma(p, c)
   mu      <- correct$mu
   sigma   <- correct$sigma
   }
