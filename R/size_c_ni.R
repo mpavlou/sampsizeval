@@ -26,9 +26,11 @@ size_c_ni <- function(p, c, varc) {
   # f1 and f2 are functions that contain the integrad in equation (5) and (6)
   # as given by Gail and Pfeiffer (2005)
 
-  f1 <- function(x, mu, s) 1 / (2 * s**2 * pi)**0.5 * exp(- (x - mu)**2 / (2 * s**2)) * (1  + exp(-x)) ^ (-1)
+  f1 <- function(x, mu, s) 1 / (2 * s**2 * pi)**0.5 * exp(- (x - mu)**2 /
+                               (2 * s**2)) * (1  + exp(-x)) ^ (-1)
 
-  f0 <- function(x, mu, s) 1 / (2 * s**2 * pi)**0.5 * exp(- (x - mu)**2 / (2 * s**2)) * (1 - (1 + exp(-x)) ^ (-1))
+  f0 <- function(x, mu, s) 1 / (2 * s**2 * pi)**0.5 * exp(- (x - mu)**2 /
+                               (2 * s**2)) * (1 - (1 + exp(-x)) ^ (-1))
 
   # The following functions are used to calculate P(eta_0<eta_1)
   # and P(eta_1<eta_0)
@@ -76,10 +78,10 @@ size_c_ni <- function(p, c, varc) {
   #Equations for Gail and Pfeiffer
 
   for (i in seq(x)) {
-    p_eta1[i] <- stats::integrate(f1, - Inf, x[i], mu = mu, subdivisions = 1000L, s = sigma)$value /
-      integrate(f1, - Inf, Inf, subdivisions = 1000L, mu = mu, s = sigma)$value
-    p_eta0[i] <- stats::integrate(f0, - Inf, x[i], mu = mu, subdivisions = 1000L, s = sigma)$value /
-      stats::integrate(f0, - Inf, Inf, subdivisions = 1000L, mu = mu, s = sigma)$value
+    p_eta1[i] <- stats::integrate(f1, - Inf, x[i], mu = mu, s = sigma)$value /
+    stats::integrate(f1, - Inf, Inf, mu = mu, s = sigma)$value
+    p_eta0[i] <- stats::integrate(f0, - Inf, x[i], mu = mu, s = sigma)$value /
+    stats::integrate(f0, - Inf, Inf, mu = mu, s = sigma)$value
   }
 
   d0 <- data.frame(cbind(x, p_eta0))
