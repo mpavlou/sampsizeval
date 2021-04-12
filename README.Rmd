@@ -13,8 +13,8 @@ output:
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of **sampsizeval** is to perform sample size calculations for the
-validation of risk models.
+The purpose of **sampsizeval** is to perform sample size calculations for the
+validation of risk models for binary outcomes.
 
 ## Installation
 
@@ -55,7 +55,7 @@ size_cil(0.057, 0.77, 0.15^2)
 ```
 
 
-For a given precision for the estimated C-statistic, calibration slope and calibration in the large, the required sample size varies depending on the anticipated values of the  C-statistic and outcome prevalence. For example for required precision SE(C)=0.025, SE(CS)=0.15 and SE(CiL)=0.15, the sample size varies as follows:
+For a given precision for the estimated C-statistic, calibration slope and calibration in the large, the required sample size varies depending on the anticipated values of the  C-statistic and outcome prevalence. For example, for required precisions SE(C)=0.025, SE(CS)=0.15 and SE(CiL)=0.15, the sample size varies as follows:
 
 
 ![Paper image](images/Figure_2_events.png)
