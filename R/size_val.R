@@ -16,7 +16,7 @@
 #' C-Statistic
 #' @param se_cs (numeric) The required standard error of the estimated
 #' Calibration Slope
-#' @param se_cl (numeric) The requiredstandard error of the estimated
+#' @param se_cl (numeric) The required standard error of the estimated
 #' Calibration in the large
 #'
 #' @return size_c: the sample size based on the C-statistic,

@@ -18,7 +18,7 @@ C-Statistic}
 \item{se_cs}{(numeric) The required standard error of the estimated
 Calibration Slope}
 
-\item{se_cl}{(numeric) The requiredstandard error of the estimated
+\item{se_cl}{(numeric) The required standard error of the estimated
 Calibration in the large}
 }
 \value{

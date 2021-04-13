@@ -44,7 +44,7 @@ The target is to calculate the size of the validation data so as to estimate the
 size_val(p=0.1, c=0.75, se_c=0.025, se_cs =0.1, se_cl = 0.1)
 ```
 
-The recommended sample size is at least 1536 observations.
+The recommended sample size is 1536 observations.
 <!-- Sample size required to achieve a SE of the Calibration Slope of at most 0.15. -->
 
 <!-- Simple formula: -->
