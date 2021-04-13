@@ -24,6 +24,6 @@ The purpose of this function is to receive the anticipated outcome prevalence
 based on CS.
 }
 \examples{
-size_cs(0.057, 0.77, 0.15)
+size_cs_app(0.057, 0.77, 0.15)
 
 }

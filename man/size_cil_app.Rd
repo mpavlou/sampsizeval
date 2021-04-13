@@ -23,6 +23,6 @@ Precision-based sample size calculation based on the Calibration in the Large
 (CiL) - approximation
 }
 \examples{
-size_cil(0.057, 0.77, 0.15)
+size_cil_app(0.057, 0.77, 0.15)
 
 }

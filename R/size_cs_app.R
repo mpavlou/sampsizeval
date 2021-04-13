@@ -16,7 +16,7 @@
 #' @export
 #'
 #' @examples
-#' size_cs(0.057, 0.77, 0.15)
+#' size_cs_app(0.057, 0.77, 0.15)
 #'
 size_cs_app  <- function(p, c, se_cs) {
 varcs    <- se_cs^2
