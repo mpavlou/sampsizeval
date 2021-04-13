@@ -2,17 +2,17 @@
 % Please edit documentation in R/size_cs_ni.R
 \name{size_cs_ni}
 \alias{size_cs_ni}
-\title{Precision-based sample size calculation based on the Calibration Slope (CS)
-using Numerical Integration}
+\title{Precision-based sample size calculation based on the Calibration Slope (CS) -
+Numerical Integration}
 \usage{
-size_cs_ni(p, c, varcs)
+size_cs_ni(p, c, se_cs)
 }
 \arguments{
 \item{p}{(numeric) The outcome prevalence, a real number between 0 and 0.5}
 
 \item{c}{(numeric) The C-statistic, a real number between 0.5 and 1}
 
-\item{varcs}{(numeric) The required variance of the Calibration slope}
+\item{se_cs}{(numeric) The required variance of the Calibration slope}
 }
 \value{
 n The required sample size
@@ -23,6 +23,6 @@ The purpose of this function is to receive the anticipated outcome prevalence
 based on CS. It uses Numerical integration and it assumes marginal normality.
 }
 \examples{
-size_cs_ni(0.057, 0.77, 0.15^2)
+size_cs_ni(0.057, 0.77, 0.15)
 
 }

@@ -3,16 +3,17 @@
 \name{size_cil_ni}
 \alias{size_cil_ni}
 \title{Precision-based sample size calculation based on the Calibration in the Large
-(CiL) using Numerical Integration}
+(CiL) - Numerical Integration}
 \usage{
-size_cil_ni(p, c, varcl)
+size_cil_ni(p, c, se_cl)
 }
 \arguments{
 \item{p}{(numeric) The outcome prevalence, a real number between 0 and 0.5}
 
 \item{c}{(numeric) The C-statistic a real number between 0.5 and 1}
 
-\item{varcl}{(numeric) The required variance of the Calibration in the Large}
+\item{se_cl}{(numeric) The required standard error of the estimated
+Calibration in the Large}
 }
 \value{
 n The required sample size
@@ -22,5 +23,5 @@ The purpose of this function is to receive the anticipated outcome prevalence
 based on CiL. It uses Numerical integration and it assumes marginal normality
 }
 \examples{
-size_cil_ni(0.57, 0.77, 0.15^2)
+size_cil_ni(0.57, 0.77, 0.15)
 }

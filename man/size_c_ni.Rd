@@ -2,17 +2,18 @@
 % Please edit documentation in R/size_c_ni.R
 \name{size_c_ni}
 \alias{size_c_ni}
-\title{Precision-based sample size calculation based on the C-statistic (C)
-using Numerical Integration}
+\title{Precision-based sample size calculation based on the C-statistic (C) -
+Numerical Integration}
 \usage{
-size_c_ni(p, c, varc)
+size_c_ni(p, c, se_c)
 }
 \arguments{
 \item{p}{(numeric) The outcome prevalence, a real number between 0 and 0.5}
 
 \item{c}{(numeric) The C-statistic, a real number between 0.5 and 1}
 
-\item{varc}{(numeric) The required variance of the C-Statistic}
+\item{se_c}{(numeric) The required standard error variance of the estimated
+C-Statistic}
 }
 \value{
 n         The required sample size
@@ -24,6 +25,6 @@ based on the C-Statistic. It uses Numerical integration and it assumes
 marginal normality.
 }
 \examples{
-size_c_ni(0.057, 0.77, 0.025^2)
+size_c_ni(0.057, 0.77, 0.025)
 
 }

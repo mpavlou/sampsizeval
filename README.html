@@ -187,25 +187,39 @@ devtools::install_github(&quot;mpavlou/sampsizeval&quot;)</code></pre>
 </div>
 <div id="example" class="section level2">
 <h2>Example</h2>
-<p>This is an example of sample size calculations for a binary outcome presented in Section 7 of the paper[GitHub]. The anticipated C-statistic and outcome prevalence are: C=0.77 and p=0.057.</p>
+<p>This is an example of a sample size calculation to validate a risk model for a binary outcome. The anticipated values of the outcome prevalence and the C-statistic are p=0.1 and C=0.75, respectively.</p>
 <pre class="r"><code>library(sampsizeval)</code></pre>
-<p>Sample size required to achieve a SE of C-statistic of at most 0.025</p>
-<pre class="r"><code>size_c(0.057, 0.77, 0.025^2)</code></pre>
-<pre><code>## [1] 1599</code></pre>
-<p>Sample size required to achieve a SE of the Calibration Slope of at most 0.15.</p>
-<p>Simple formula:</p>
-<pre class="r"><code>size_cs(0.057, 0.7, 0.15^2)</code></pre>
-<pre><code>## [1] 1593</code></pre>
-<p>Numerical integration:</p>
-<pre class="r"><code>size_cs_ni(0.057, 0.7, 0.15^2)</code></pre>
-<pre><code>## [1] 1640</code></pre>
-<p>Sample size required to achieve a SE of the Calibration in the Large of at most 0.15:</p>
-<p>Simple formula:</p>
-<pre class="r"><code>size_cil(0.057, 0.7, 0.15^2)</code></pre>
-<pre><code>## [1] 851</code></pre>
-<p>Numerical integration:</p>
-<pre class="r"><code>size_cil_ni(0.057, 0.7, 0.15^2)</code></pre>
-<pre><code>## [1] 857</code></pre>
+<p>The target is to calculate the size of the validation data so as to estimate the C-statistic, the Calibration Slope and the Calibration in the Large with sufficient precision. In this example, the required precision is reflected by a SE of the estimated C-statistic of at most 0.025, and SE of the estimated Calibration Slope and Calibration in the Large of at mos 0.1.</p>
+<pre class="r"><code>size_val(p=0.1, c=0.75, se_c=0.025, se_cs =0.1, se_cl = 0.1)</code></pre>
+<pre><code>## $size_c
+## [1] 1028
+## 
+## $size_cs
+## [1] 1536
+## 
+## $size_cl
+## [1] 1224
+## 
+## $size_recommended
+## [1] 1536</code></pre>
+<p>The recommended sample size is at least 1536 observations. <!-- Sample size required to achieve a SE of the Calibration Slope of at most 0.15. --></p>
+<!-- Simple formula: -->
+<!-- ```{r} -->
+<!-- size_cs_ni(0.057, 0.7, 0.15^2) -->
+<!-- ``` -->
+<!-- Numerical integration: -->
+<!-- ```{r} -->
+<!-- size_cs_ni(0.057, 0.7, 0.15^2) -->
+<!-- ``` -->
+<!-- Sample size required to achieve a SE of the Calibration in the Large  of at most 0.15: -->
+<!-- Simple formula: -->
+<!-- ```{r} -->
+<!-- size_cil(0.057, 0.7, 0.15^2) -->
+<!-- ``` -->
+<!-- Numerical integration: -->
+<!-- ```{r} -->
+<!-- size_cil_ni(0.057, 0.7, 0.15^2) -->
+<!-- ``` -->
 <!-- For a given precision for the estimated C-statistic, calibration slope and calibration in the large, the required sample size varies depending on the anticipated values of the  C-statistic and outcome prevalence. For example, for required precisions SE(C)=0.025, SE(CS)=0.15 and SE(CiL)=0.15, the sample size varies as follows: -->
 <!-- ![Paper image](images/Figure_2_events.png) -->
 </div>

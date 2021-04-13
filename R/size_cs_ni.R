@@ -1,6 +1,6 @@
 
-#' Precision-based sample size calculation based on the Calibration Slope (CS)
-#' using Numerical Integration
+#' Precision-based sample size calculation based on the Calibration Slope (CS) -
+#'  Numerical Integration
 #'
 #' The purpose of this function is to receive the anticipated outcome prevalence
 #' , -statistic and calculate the sample size to achieve the required precision
@@ -9,16 +9,17 @@
 #'
 #' @param p (numeric) The outcome prevalence, a real number between 0 and 0.5
 #' @param c (numeric) The C-statistic, a real number between 0.5 and 1
-#' @param varcs (numeric) The required variance of the Calibration slope
+#' @param se_cs (numeric) The required variance of the Calibration slope
 #'
 #' @return n The required sample size
 #' @export
 #'
 #' @examples
-#' size_cs_ni(0.057, 0.77, 0.15^2)
+#' size_cs_ni(0.057, 0.77, 0.15)
 #'
-size_cs_ni <- function(p, c, varcs) {
+size_cs_ni <- function(p, c, se_cs) {
 
+  varcs <- se_cs^2
 
   if (c <= 0.8) {
   fc      <- 1.00
