@@ -6,7 +6,6 @@
 #' based on CiL. It uses Numerical integration and it assumes marginal normality
 #'
 #'
-#'
 #' @param p (numeric) The outcome prevalence, a real number between 0 and 0.5
 #' @param c (numeric) The C-statistic a real number between 0.5 and 1
 #' @param se_cl (numeric) The required standard error of the estimated
