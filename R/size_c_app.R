@@ -13,7 +13,6 @@
 #' C- statistic
 #'
 #' @return n The required sample size
-#' @export
 #'
 #' @examples
 #' size_c_app(0.057, 0.77, 0.025)

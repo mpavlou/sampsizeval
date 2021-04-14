@@ -15,7 +15,6 @@
 #' @export
 #'
 #' @examples
-#' size_cs_ni(0.057, 0.77, 0.15)
 #'
 size_cs_ni <- function(p, c, se_cs) {
 

@@ -8,8 +8,6 @@
 #' Calibration in the Large
 #'
 #' @return n The required sample size
-#'
-#' @export
 #' @examples
 #' size_cil_app(0.057, 0.77, 0.15)
 #'

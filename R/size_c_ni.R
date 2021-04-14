@@ -14,7 +14,7 @@
 #' C-Statistic
 #'
 #' @return n         The required sample size
-#' @export
+
 #'
 #' @examples
 #' size_c_ni(0.057, 0.77, 0.025)

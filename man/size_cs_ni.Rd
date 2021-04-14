@@ -23,6 +23,5 @@ The purpose of this function is to receive the anticipated outcome prevalence
 based on CS. It uses Numerical integration and it assumes marginal normality.
 }
 \examples{
-size_cs_ni(0.057, 0.77, 0.15)
 
 }
