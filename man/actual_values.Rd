@@ -23,5 +23,5 @@ are arguments for the sample size calculation. These are relevant for the
 version of the formulae that require the use of numerical integration
 }
 \examples{
-actual_values(0.1, 0.8)
+
 }

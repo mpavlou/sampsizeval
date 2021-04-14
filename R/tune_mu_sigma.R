@@ -13,9 +13,7 @@
 #'
 #' @return  The actual prevalence and c-statistic, for the updated values of
 #' mu and sigma based on the tuning factor fc.
-#'
-#' @examples
-#' find_mu_sigma(0.1,0.8)
+
 tune_mu_sigma <- function(p, c) {
 
   actual <- actual_values(p = p , c = c, fc = 1)

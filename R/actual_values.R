@@ -11,8 +11,6 @@
 #'
 #' @return the actual prevalence and C-statistic, mu and sigma
 #'
-#' @examples
-#' actual_values(0.1, 0.8)
 actual_values <- function(p, c, fc = 1) {
   nevents<-300000
   n       <- nevents / p

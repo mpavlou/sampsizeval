@@ -24,6 +24,3 @@ p sufficiently close to the anticipated ones. This is relevant for the
 version of the formulae that require the use of numerical integration, when
 C>=0.8.
 }
-\examples{
-find_mu_sigma(0.1,0.8)
-}

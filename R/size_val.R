@@ -16,7 +16,7 @@
 #' use the formulae (12) and (13) that require the use of numerical integration.
 #' These are also quick to run.
 #'
-#' Results from the estimator based on C that uses numerical integration #' and
+#' Results from the estimator based on C that uses numerical integration  and
 #' the closed-form estimators based on CS and CL that make the use of
 #' approximations can be obtained from functions  'size_c_ni', 'size_cs_app'
 #' and 'size_cl_app'.
