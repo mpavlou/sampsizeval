@@ -191,13 +191,13 @@ devtools::install_github(&quot;mpavlou/sampsizeval&quot;)</code></pre>
 <pre class="r"><code>library(sampsizeval)</code></pre>
 <p>The target is to calculate the size of the validation data so as to estimate the C-statistic, the Calibration Slope and the Calibration in the Large with sufficient precision. In this example, the required precision is reflected by a SE of the estimated C-statistic of at most 0.025, and SE of the estimated Calibration Slope and Calibration in the Large of at mos 0.1.</p>
 <pre class="r"><code>size_val(p=0.1, c=0.75, se_c=0.025, se_cs =0.1, se_cl = 0.1)</code></pre>
-<pre><code>## $size_c
+<pre><code>## $size_c_statistic
 ## [1] 1028
 ## 
-## $size_cs
+## $size_calibration_slope
 ## [1] 1536
 ## 
-## $size_cl
+## $size_calibration_large
 ## [1] 1224
 ## 
 ## $size_recommended

@@ -13,7 +13,6 @@
 #'
 #' @return  The actual prevalence and c-statistic, for the updated values of
 #' mu and sigma based on the tuning factor fc.
-#' @export
 #'
 #' @examples
 #' find_mu_sigma(0.1,0.8)

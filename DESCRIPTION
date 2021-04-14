@@ -12,7 +12,13 @@ Description: Estimation of the required sample size to validate a risk model for
     required to enter the anticipated values of the C-statistic and outcome 
     prevalence, which can be obtained from a previous study or expert knowledge.
     The user also needs to specify the required precision (variance) for the 
-    C-statistic, the calibration slope and the calibration in the large. 
+    C-statistic, the calibration slope and the calibration in the large. The 
+    calculations are valid under the assumption of marginal normality for the 
+    distribution of the linear predictor. The
+    default calculation for the C-statistic is based on the approximate formula
+    which is very accurate for all values of C and p. For the calibration slope 
+    and calibration in the large the formulae that use numerical intergration 
+    are used. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
