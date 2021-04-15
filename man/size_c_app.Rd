@@ -23,7 +23,3 @@ The purpose of this function is to receive the anticipated outcome prevalence
 , C-statistic and calculate the sample size to achieve the required precision
 based on the C-statistic.
 }
-\examples{
-size_c_app(0.057, 0.77, 0.025)
-
-}
