@@ -15,7 +15,6 @@
 #'
 #' @return n         The required sample size
 
-#'
 size_c_ni <- function(p, c, se_c) {
 
   varc <- se_c^2
@@ -67,7 +66,7 @@ size_c_ni <- function(p, c, se_c) {
 
   intf1  <- function(upper) {
     prob  <- NULL
-    denom <-stats::integrate(f1, -Inf, Inf, mu = mu, s = sigma)$value
+    denom <- stats::integrate(f1, -Inf, Inf, mu = mu, s = sigma)$value
     for (i in seq(upper)) {
       prob[i] <- stats::integrate(f1, -Inf, upper = upper[i], mu = mu,
                       s = sigma)$value / denom
@@ -89,9 +88,9 @@ size_c_ni <- function(p, c, se_c) {
   #Numerical integration to get P(eta_0<x) and P(eta_1<x)
   #Equations for Gail and Pfeiffer
   denom1 <- stats::integrate(f1, - Inf, Inf, mu = mu, s = sigma,
-                             subdivisions=10000L)$value
+                             subdivisions = 10000L)$value
   denom0 <- stats::integrate(f0, - Inf, Inf, mu = mu, s = sigma,
-                             subdivisions=1000L)$value
+                             subdivisions = 1000L)$value
 
   for (i in seq(x)) {
     p_eta1[i] <- stats::integrate(f1, - Inf, x[i], mu = mu, s = sigma)$value /
@@ -123,26 +122,21 @@ size_c_ni <- function(p, c, se_c) {
 
   for (i in seq(x)) {
     p_eta1[i] <- stats::integrate(f1, -Inf, x[i], mu = mu, s = sigma,
-                                  subdivisions=1000L)$value / denom1
+                                  subdivisions = 1000L)$value / denom1
     p_eta0[i] <- stats::integrate(f0, -Inf, x[i], mu = mu, s = sigma,
-                                  subdivisions=1000L)$value / denom0
+                                  subdivisions = 1000L)$value / denom0
   }
 
   p_eta0[1] <- 0
   p_eta1[1] <- 0
-  if (p_eta0[length(x)] !=1 ) p_eta0[length(x)] <- 1
-  if (p_eta1[length(x)] !=1 ) p_eta1[length(x)] <- 1
+  if (p_eta0[length(x)] != 1) p_eta0[length(x)] <- 1
+  if (p_eta1[length(x)] != 1) p_eta1[length(x)] <- 1
 
 
-  #mydata <- data.frame(x,p_eta0)
-  #mydata[duplicated(mydata1$p_eta1), ]
-  #mydata0 <- data.frame(x,p_eta0)
 
-  #mydata1 <- mydata[duplicated(mydata1$p_eta1), ]
-  #mydata0 <- mydata0[!duplicated(mydata0$p_eta0), ]
 
   # Inverse CDF to sample from the distribution of eta_0 and eta_1
-  #nsamps   <- length(x)
+
   nsamps   <- 1000000
   u        <- sort(stats::runif(nsamps))
   eta0     <- pracma::interp1(x = sort(p_eta0), y = x, xi = u)
@@ -169,7 +163,6 @@ size_c_ni <- function(p, c, se_c) {
   prob <- NULL
   prob <- intf1(eta0)
   e_g2 <- mean((1 - prob)^2)
-  #e_g2 <- e_k2
 
   #Enter in the final formula
   n         <- (1 / varc) * ((1 - p_true) * e_k2 + p_true * e_g2 - c_true^2) /

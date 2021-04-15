@@ -2,5 +2,4 @@
 
 export("%>%")
 export(sampsizeval)
-export(size_cs_ni)
 importFrom(magrittr,"%>%")

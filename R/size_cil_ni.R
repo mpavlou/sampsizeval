@@ -12,9 +12,6 @@
 #' Calibration in the Large
 #'
 #' @return n The required sample size
-#'
-#' @examples
-#' size_cil_ni(0.57, 0.77, 0.15)
 
 size_cil_ni <- function(p, c, se_cl) {
 

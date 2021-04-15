@@ -22,7 +22,3 @@ n The required sample size
 Precision-based sample size calculation based on the Calibration in the Large
 (CiL) - approximation
 }
-\examples{
-size_cil_app(0.057, 0.77, 0.15)
-
-}

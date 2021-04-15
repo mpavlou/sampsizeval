@@ -14,9 +14,6 @@
 #'
 #' @return n The required sample size
 #'
-#' @examples
-#' size_cs_app(0.057, 0.77, 0.15)
-#'
 size_cs_app  <- function(p, c, se_cs) {
 varcs    <- se_cs^2
 a        <- 2 * p * (1 - p) * stats::qnorm(c)^2

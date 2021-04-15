@@ -8,8 +8,6 @@
 #' Calibration in the Large
 #'
 #' @return n The required sample size
-#' @examples
-#' size_cil_app(0.057, 0.77, 0.15)
 #'
 size_cil_app <- function(p, c, se_cl) {
   varcl <- se_cl^2

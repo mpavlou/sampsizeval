@@ -12,9 +12,6 @@
 #' @param se_cs (numeric) The required variance of the Calibration slope
 #'
 #' @return n The required sample size
-#' @export
-#'
-#' @examples
 #'
 size_cs_ni <- function(p, c, se_cs) {
 

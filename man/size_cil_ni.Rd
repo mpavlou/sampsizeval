@@ -22,6 +22,3 @@ n The required sample size
 The purpose of this function is to receive the anticipated outcome prevalence
 based on CiL. It uses Numerical integration and it assumes marginal normality
 }
-\examples{
-size_cil_ni(0.57, 0.77, 0.15)
-}

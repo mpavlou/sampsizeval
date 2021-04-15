@@ -24,7 +24,3 @@ The purpose of this function is to receive the anticipated outcome prevalence
 based on the C-Statistic. It uses Numerical integration and it assumes
 marginal normality.
 }
-\examples{
-size_c_ni(0.057, 0.77, 0.025)
-
-}

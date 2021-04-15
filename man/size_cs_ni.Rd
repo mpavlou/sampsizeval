@@ -22,6 +22,3 @@ The purpose of this function is to receive the anticipated outcome prevalence
 , -statistic and calculate the sample size to achieve the required precision
 based on CS. It uses Numerical integration and it assumes marginal normality.
 }
-\examples{
-
-}

@@ -48,7 +48,7 @@ sampsizeval <- function(p, c, se_c = 0.025, se_cs = 0.1, se_cl = 0.1) {
 
 size_c  <- size_c_app(p = p, c = c, se_c = se_c)
 size_cs <- size_cs_ni(p = p, c = c, se_cs = se_cs)
-size_cl <- size_cil_ni(p = p, c= c, se_cl = se_cl)
+size_cl <- size_cil_ni(p = p, c = c, se_cl = se_cl)
 
 size_final <- max(size_c, size_cs, size_cl)
 

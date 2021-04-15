@@ -18,7 +18,7 @@ the actual prevalence and C-statistic, mu and sigma
 }
 \description{
 The purpose of this function is to Check whether the values of mu and sigma
-correspond to the anticipated values of prevalence, p, and C-statistic, c that
-are arguments for the sample size calculation. These are relevant for the
-version of the formulae that require the use of numerical integration
+correspond to the anticipated values of prevalence, p, and C-statistic, c
+that are arguments for the sample size calculation. These are relevant for
+the version of the formulae that require the use of numerical integration
 }
