@@ -1,14 +1,4 @@
 
-#' Precision-based sample size calculation based on the Calibration in the Large
-#'  (CiL) - approximation
-#'
-#' @param p (numeric) The outcome prevalence, a real number between 0 and 0.5
-#' @param c (numeric) The C-statistic, a real number between 0.5 and 1
-#' @param se_cl (numeric) The required standard error of the estiamted
-#' Calibration in the Large
-#'
-#' @return n The required sample size
-#'
 size_cil_app <- function(p, c, se_cl) {
   varcl <- se_cl^2
 

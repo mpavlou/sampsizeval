@@ -1,17 +1,4 @@
 
-#' Precision-based sample size calculation based on the Calibration in the Large
-#' (CiL) - Numerical Integration
-#'
-#' The purpose of this function is to receive the anticipated outcome prevalence
-#' based on CiL. It uses Numerical integration and it assumes marginal normality
-#'
-#'
-#' @param p (numeric) The outcome prevalence, a real number between 0 and 0.5
-#' @param c (numeric) The C-statistic a real number between 0.5 and 1
-#' @param se_cl (numeric) The required standard error of the estimated
-#' Calibration in the Large
-#'
-#' @return n The required sample size
 
 size_cil_ni <- function(p, c, se_cl) {
 

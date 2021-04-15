@@ -1,16 +1,4 @@
-#' Check whether the formulae for mu and sigma give anticipated c and p
-#'
-#' The purpose of this function is to Check whether the values of mu and sigma
-#' correspond to the anticipated values of prevalence, p, and C-statistic, c
-#' that are arguments for the sample size calculation. These are relevant for
-#' the version of the formulae that require the use of numerical integration
-#'
-#' @param p The anticipated prevalence
-#' @param c The anticipated C-statistic
-#' @param fc The tuning factor to adjust mu and sigma when C>=0.8
-#'
-#' @return the actual prevalence and C-statistic, mu and sigma
-#'
+
 actual_values <- function(p, c, fc = 1) {
   nevents <- 300000
   n       <- nevents / p

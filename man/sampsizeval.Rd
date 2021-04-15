@@ -35,10 +35,6 @@ size_recommended: the final sample size recommendation (the largest
 of the three above)
 }
 \description{
-The sampsizeval  function calculates the sample size required in the
-validation dataset,  to achieve sufficient precision in the estimated
-C-statistic, calibration slope and calibration in the large.
-
 This function calculates the sample size required in the validation dataset
 to estimate the C-statistic (C), the calibration Slope (CS) and the
 Calibration in the Large (CL) with sufficient precision. It takes as

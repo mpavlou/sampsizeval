@@ -1,20 +1,4 @@
 
-#' Precision-based sample size calculation based on the C-statistic (C) -
-#' approximation
-#'
-#' The purpose of this function is to receive the anticipated outcome prevalence
-#' , C-statistic and calculate the sample size to achieve the required precision
-#' based on the C-statistic.
-#'
-#'
-#' @param p (numeric) The outcome prevalence, a real number between 0 and 0.5
-#' @param c (numeric) The C-statistic,  a real number between 0.5 and 1
-#' @param se_c (numeric) The required standard error of the estimated
-#' C- statistic
-#'
-#' @return n The required sample size
-#'
-#'
 size_c_app <- function(p, c, se_c) {
 
   varc <- se_c^2

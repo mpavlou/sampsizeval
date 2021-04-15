@@ -1,20 +1,4 @@
 
-#' Precision-based sample size calculation based on the C-statistic (C) -
-#' Numerical Integration
-#'
-#' The purpose of this function is to receive the anticipated outcome prevalence
-#', C-statistic and calculate the sample size to achieve the required precision
-#' based on the C-Statistic. It uses Numerical integration and it assumes
-#' marginal normality.
-#'
-#'
-#' @param p (numeric) The outcome prevalence, a real number between 0 and 0.5
-#' @param c (numeric) The C-statistic, a real number between 0.5 and 1
-#' @param se_c (numeric) The required standard error variance of the estimated
-#' C-Statistic
-#'
-#' @return n         The required sample size
-
 size_c_ni <- function(p, c, se_c) {
 
   varc <- se_c^2
