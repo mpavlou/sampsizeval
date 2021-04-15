@@ -1,5 +1,5 @@
 Package: sampsizeval
-Title: Estimation of Required Sample Size for Validation of Risk Models for binary outcomes
+Title: Estimation of Required Sample Size for Validation of Risk Models for Binary outcomes
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Menelaos",
@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "m.pavlou@ucl.ac.uk",
            comment = c(ORCID = "0000-0003-1161-1440"))
-Description: Estimation of the required sample size to validate a risk model for binary outcomes, based on the sample size equations proposed by Pavlou et al. (2021) <doi: 10.1177/09622802211007522>. For precision-based sample size calcucation, the user is required to enter the anticipated values of the C-statistic and outcome prevalence, which can be obtained from a previous study or expert knowledge.The user also needs to specify the required precision (variance) for the C-statistic, the calibration slope and the calibration in the large. The calculations are valid under the assumption of marginal normality for the distribution of the linear predictor. 
+Description: Estimation of the required sample size to validate a risk model for binary outcomes, based on the sample size equations proposed by Pavlou et al. (2021) <doi: 10.1177/09622802211007522>. For precision-based sample size calculation, the user is required to enter the anticipated values of the C-statistic and outcome prevalence, which can be obtained from a previous study or expert knowledge.The user also needs to specify the required precision (variance) for the C-statistic, the calibration slope and the calibration in the large. The calculations are valid under the assumption of marginal normality for the distribution of the linear predictor. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
