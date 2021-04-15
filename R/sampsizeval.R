@@ -25,7 +25,7 @@
 #' and 'size_cl_app'.
 #'
 #' @param p (numeric) The anticipated outcome prevalence, a real number between
-#' 0 and 0.5
+#' 0 and 1
 #' @param c (numeric) The anticipated C-statistic, a real number between
 #' 0.5 and 1
 #' @param se_c (numeric) The required standard error of the estimated

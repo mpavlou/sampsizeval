@@ -2,8 +2,9 @@
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^README\.Rmd$
+^README\.html$
 ^README\.tex$
+^README\.html$
 ^\.travis\.yml$
 ^\.github$
-^rsconnect\.user$
 ^cran-comments\.md$
