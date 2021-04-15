@@ -29,10 +29,9 @@ Suggests:
 Config/testthat/edition: 3
 Imports: 
     stats,
-    sn,
-    MASS,
-    pracma,
     magrittr,
+    sn,
+    pracma,
     pROC
 URL: https://github.com/mpavlou/sampsizeval
 BugReports: https://github.com/mpavlou/sampsizeval/issues
