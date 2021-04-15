@@ -1,6 +1,9 @@
-^firstpackage\.Rproj$
+^sampsizeval\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^README\.Rmd$
+^README\.tex$
 ^\.travis\.yml$
 ^\.github$
+^rsconnect\.user$
+^cran-comments\.md$
