@@ -16,9 +16,6 @@
 #' @return n         The required sample size
 
 #'
-#' @examples
-#' size_c_ni(0.057, 0.77, 0.025)
-#'
 size_c_ni <- function(p, c, se_c) {
 
   varc <- se_c^2
