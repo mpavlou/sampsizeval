@@ -44,7 +44,23 @@
 #'
 #' @examples
 #' sampsizeval(p=0.1, c=0.75, se_c=0.025, se_cs =0.1, se_cl = 0.1)
-sampsizeval <- function(p, c, se_c = 0.025, se_cs = 0.1, se_cl = 0.1) {
+sampsizeval <- function(p, c, se_c, se_cs, se_cl) {
+
+
+if (missing(p) == TRUE) stop("Please enter the anticipated prevalence")
+
+if (missing(c) == TRUE) stop("Please enter the anticipated C-statistic")
+
+if (missing(se_c) == TRUE) stop("Please enter required stadard error (SE) for the estimated C-statistic.
+  For example, for a confidence interval of width 0.1, se_c=0.025")
+
+if (missing(se_cs) == TRUE) stop("Please enter required stadard error (SE) for the estimated Calibration Slope.
+  For example, for a confidence interval of width 0.1, se_cs=0.1")
+
+if (missing(se_cl) == TRUE) stop("Please enter required stadard error (SE) for the estimated Calibration in the large.
+  For example, for a confidence interval of width 0.1, se_cl=0.1")
+
+  if (p > 0.5) p <- 1-p
 
 size_c  <- size_c_app(p = p, c = c, se_c = se_c)
 size_cs <- size_cs_ni(p = p, c = c, se_cs = se_cs)

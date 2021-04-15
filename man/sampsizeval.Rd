@@ -6,7 +6,7 @@
 \title{sampsizeval: Estimation of Required Sample Size for Validation of Risk
 Models for binary outcomes}
 \usage{
-sampsizeval(p, c, se_c = 0.025, se_cs = 0.1, se_cl = 0.1)
+sampsizeval(p, c, se_c, se_cs, se_cl)
 }
 \arguments{
 \item{p}{(numeric) The anticipated outcome prevalence, a real number between
