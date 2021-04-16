@@ -1,5 +1,5 @@
 Package: sampsizeval
-Title: Estimation of Required Sample Size for Validation of Risk Models for Binary outcomes
+Title: Estimation of Required Sample Size for Validation of Risk Models for Binary Outcomes
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Menelaos",
