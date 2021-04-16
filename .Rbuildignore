@@ -5,6 +5,7 @@
 ^README\.html$
 ^README\.tex$
 ^README\.html$
+^cran-comments\.md$
 ^\.travis\.yml$
 ^\.github$
 ^cran-comments\.md$
