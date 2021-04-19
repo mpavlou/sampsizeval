@@ -1,28 +1,30 @@
-#' Precision-based sample size calculations for validation of risk models
-#' for binary outcomes
-#'
+#' Precision-based Sample size Calculations for Validation of Risk Models
+#' for Binary Outcomes
+
+#' @description
 #' This function calculates the sample size required in the validation dataset
 #' to estimate the C-statistic (C), the calibration Slope (CS) and the
 #' Calibration in the Large (CL) with sufficient precision. It takes as
 #' arguments the anticipated values of the C-statistic and the outcome
 #' prevalence (obtained, for example, from a previous study) and the required
 #' standard error for C, CS and CL.
-#'
+
+#' @details
 #' The sample size calculations are valid under the assumption of marginal
 #' normality for the distribution of the linear predictor.The default sample
-#' size calculation based on C uses the closed-form expression in equation (9).
-#' This is quick to run and accurate for all values of C and p.
-#' The default sample size calculations based on CS and CL
-#' use the formulae (12) and (13) that require the use of numerical integration.
-#' These are also quick to run. The parameters of the assumed Normal
+#' size calculation based on C uses the closed-form expression in equation (9)
+#' as proposed by *Pavlou et al. (2021)*.This is quick to run and accurate for
+#' all values of anticipated C and p.The default sample size calculations based
+#' on CS and CL use the formulae (12) and (13) that require the use of numerical
+#' integration.These are also quick to run. The parameters of the assumed Normal
 #' distribution used in the latter two expressions are obtained using equations
 #' (7) and (8) and are fine-tuned for values of anticipated C>=0.8.
 #'
 #' Sample size calculations from the estimator based on C that uses numerical
-#' integration  and from
-#' the closed-form estimators based on CS and CL that make the use of
-#' approximations, can be obtained from functions 'size_c_ni', 'size_cs_app'
-#' and 'size_cl_app'.
+#' integration  and from the closed-form estimators based on CS and CL that make
+#' the use of approximations, can be obtained from functions 'size_c_ni',
+#' 'size_cs_app' and 'size_cl_app'.
+#'
 #'
 #' @param p (numeric) The anticipated outcome prevalence, a real number between
 #' 0 and 1
@@ -33,7 +35,7 @@
 #' @param se_cs (numeric) The required standard error of the estimated
 #' Calibration Slope
 #' @param se_cl (numeric) The required standard error of the estimated
-#' Calibration in the large
+#' Calibration in the Large
 #'
 #' @return size_c: the sample size based on the C-statistic,
 #' @return size_cs: the sample size based on the Calibration Slope,
@@ -44,6 +46,12 @@
 #'
 #' @examples
 #' sampsizeval(p=0.1, c=0.75, se_c=0.025, se_cs =0.1, se_cl = 0.1)
+#'
+#' @references
+#' Pavlou M, Chen Q, Omar ZR, Seaman RS, Steyerberg WE, White RI, Ambler G.
+#' Estimation of required sample size for external validation of risk models
+#' for binary outcomes SMMR (2021)
+#'
 sampsizeval <- function(p, c, se_c, se_cs, se_cl) {
 
 
