@@ -10,7 +10,7 @@ Authors@R:
 Description: Estimation of the required sample size to validate a risk model for binary outcomes, based on the sample size equations proposed by Pavlou et al. (2021) <doi: 10.1177/09622802211007522>. For precision-based sample size calculation, the user is required to enter the anticipated values of the C-statistic and outcome prevalence, which can be obtained from a previous study or expert knowledge.The user also needs to specify the required precision (variance) for the C-statistic, the calibration slope and the calibration in the large. The calculations are valid under the assumption of marginal normality for the distribution of the linear predictor. 
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
+LazyData: false
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Suggests: 
