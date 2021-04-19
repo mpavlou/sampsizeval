@@ -11,12 +11,10 @@
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 notes
+0 errors | 0 warnings | 0 notes
 
 * checking CRAN incoming feasibility ... NOTE
 Maintainer: Maintainer: 'Menelaos Pavlou <m.pavlou@ucl.ac.uk>'
-
-New submission
 
 
 
@@ -28,6 +26,6 @@ New submission
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 0 notes
 
 * This is a new release.
