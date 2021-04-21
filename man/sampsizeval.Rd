@@ -59,6 +59,14 @@ the use of approximations, can be obtained from functions 'size_c_ni',
 'size_cs_app' and 'size_cl_app'.
 }
 \examples{
+# Calculate the sample size of the validation data to estimate the
+# C-statistic, the Calibration slope and the Calibration in the Large with
+# sufficient precision. It is assumed that the anticipated prevalence is 0.1
+# and the C-statistic is 0.75. The required SE for the C statistic is 0.025
+# (corresponding to a confidence interval of width approximately 0.1) and the
+# required SE for the calibration slope and calibration in the large is 0.1
+# (corresponding to a confidence interval of width approximately 0.4).
+
 sampsizeval(p=0.1, c=0.75, se_c=0.025, se_cs =0.1, se_cl = 0.1)
 
 }
