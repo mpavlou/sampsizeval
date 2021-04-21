@@ -73,5 +73,5 @@ sampsizeval(p=0.1, c=0.75, se_c=0.025, se_cs =0.1, se_cl = 0.1)
 \references{
 Pavlou M, Chen Q, Omar ZR, Seaman RS, Steyerberg WE, White RI, Ambler G.
 Estimation of required sample size for external validation of risk models
-for binary outcomes SMMR (2021)
+for binary outcomes, SMMR (2021)
 }

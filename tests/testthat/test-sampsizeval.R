@@ -27,6 +27,15 @@ test_that("Output is a list of length 4", {
 })
 
 
+test_that("Error message for implausible prevalence", {
+  expect_error(sampsizeval(p=3, c=0.77,  se_c=0.025, se_cs =0.15, se_cl = 0.15))
+})
+
+test_that("Error message for implausible C-statistic", {
+  expect_error(sampsizeval(p=057, c=1.3,  se_c=0.025, se_cs =0.15, se_cl = 0.15))
+})
+
+
 test_that("Sample size calculations are correct", {
   a <- sampsizeval(p=0.057, c=0.77, se_c=0.025, se_cs =0.15, se_cl = 0.15)
   expect_equal(a$size_c_statistic,1599)

@@ -58,7 +58,7 @@
 #' @references
 #' Pavlou M, Chen Q, Omar ZR, Seaman RS, Steyerberg WE, White RI, Ambler G.
 #' Estimation of required sample size for external validation of risk models
-#' for binary outcomes SMMR (2021)
+#' for binary outcomes, SMMR (2021)
 #'
 sampsizeval <- function(p, c, se_c, se_cs, se_cl) {
 
@@ -75,6 +75,12 @@ if (missing(se_cs) == TRUE) stop("Please enter required stadard error (SE) for t
 
 if (missing(se_cl) == TRUE) stop("Please enter required stadard error (SE) for the estimated Calibration in the large.
   For example, for a confidence interval of width 0.1, se_cl=0.1")
+
+if (p<=0 | p>=1) stop("Please enter a value of the anticipated outcome prevalence in (0,1)")
+
+if (c<=0.5 | c>=1) stop("Please enter a value of the anticipated C-statistic in (0.5,1)")
+
+
 
   if (p > 0.5) p <- 1-p
 
