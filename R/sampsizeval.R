@@ -58,7 +58,7 @@
 #' @references
 #' Pavlou M, Chen Q, Omar ZR, Seaman RS, Steyerberg WE, White RI, Ambler G.
 #' Estimation of required sample size for external validation of risk models
-#' for binary outcomes, SMMR (2021)
+#' for binary outcomes, SMMR (2021). doi:10.1177/09622802211007522
 #'
 sampsizeval <- function(p, c, se_c, se_cs, se_cl) {
 
