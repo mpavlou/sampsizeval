@@ -1,5 +1,5 @@
 
-size_cil_app <- function(p, c, se_cl) {
+size_cl_app <- function(p, c, se_cl) {
   varcl <- se_cl^2
 
   fc      <- 1.00

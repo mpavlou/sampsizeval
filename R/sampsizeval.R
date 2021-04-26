@@ -13,7 +13,7 @@
 #' The sample size calculations are valid under the assumption of marginal
 #' normality for the distribution of the linear predictor.The default sample
 #' size calculation based on C uses the closed-form expression in equation (9)
-#' as proposed by *Pavlou et al. (2021)*.This is quick to run and accurate for
+#' as proposed by *Pavlou et al. (2021)*. This is quick to run and accurate for
 #' all values of anticipated C and p.The default sample size calculations based
 #' on CS and CL use the formulae (12) and (13) that require the use of numerical
 #' integration.These are also quick to run. The parameters of the assumed Normal
@@ -36,6 +36,16 @@
 #' Calibration Slope
 #' @param se_cl (numeric) The required standard error of the estimated
 #' Calibration in the Large
+#' @param c_ni (logical) Numerical integration is used for the calculations for
+#'             C-statistic (TRUE) or the closed-form expression (FALSE). Default
+#'             value is 'FALSE'.
+#' @param cs_ni (logical) Numerical integration is used for the calculations for
+#'             Calibration Slope (TRUE) or the closed-form expression (FALSE).
+#'             Default value is 'TRUE'
+#' @param cl_ni (logical) Numerical integration is used for the calculations for
+#'             Calibration in the Large (TRUE) or the closed-form expression
+#'             (FALSE). Default value is 'TRUE'.
+
 #'
 #' @return size_c: the sample size based on the C-statistic,
 #' @return size_cs: the sample size based on the Calibration Slope,
@@ -60,7 +70,8 @@
 #' Estimation of required sample size for external validation of risk models
 #' for binary outcomes, SMMR (2021). doi:10.1177/09622802211007522
 #'
-sampsizeval <- function(p, c, se_c, se_cs, se_cl) {
+sampsizeval <- function(p, c, se_c, se_cs, se_cl, c_ni=FALSE, cs_ni=TRUE,
+                        cl_ni=TRUE) {
 
 
 if (missing(p) == TRUE) stop("Please enter the anticipated prevalence")
@@ -81,12 +92,28 @@ if (p<=0 | p>=1) stop("Please enter a value of the anticipated outcome prevalenc
 if (c<=0.5 | c>=1) stop("Please enter a value of the anticipated C-statistic in (0.5,1)")
 
 
+if (p > 0.5) p <- 1-p
 
-  if (p > 0.5) p <- 1-p
+# Fine tune mu and sigma if anticipated c>0.8
+if (c <= 0.8) {
+  fc      <- 1.00
+  sigma_c <- sqrt(2) * stats::qnorm(c) * fc
+  mu      <- 0.5 * (2 * p - 1) * (sigma_c ^ 2) + log(p / (1 - p))
+  sigma   <- sqrt((sigma_c^2) * (1 + p * (1 - p) * (sigma_c^2)))
+} else {
 
-size_c  <- size_c_app(p = p, c = c, se_c = se_c)
-size_cs <- size_cs_ni(p = p, c = c, se_cs = se_cs)
-size_cl <- size_cil_ni(p = p, c = c, se_cl = se_cl)
+  correct <- tune_mu_sigma(p, c)
+  mu      <- correct$mu
+  sigma   <- correct$sigma
+}
+
+
+if (c_ni==TRUE)  size_c  <- size_c_ni(mu = mu, sigma = sigma, se_c = se_c) else
+                 size_c  <- size_c_app(p = p, c = c, se_c = se_c)
+if (cs_ni==TRUE) size_cs <- size_cs_ni(mu = mu, sigma = sigma, se_cs = se_cs) else
+                 size_cs <- size_cs_app(p = p, c = c, se_cs = se_cs)
+if (cl_ni==TRUE) size_cl <- size_cl_ni(mu = mu, sigma = sigma, se_cl = se_cl) else
+                 size_cl <- size_cl_app(p = p, c = c, se_cl = se_cl)
 
 size_final <- max(size_c, size_cs, size_cl)
 
@@ -96,4 +123,7 @@ out <- list("size_c_statistic" = size_c,
             "size_recommended" = size_final)
 
 return(out)
-  }
+}
+
+
+

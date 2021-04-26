@@ -6,7 +6,7 @@
 \title{sampsizeval: Estimation of Required Sample Size for Validation of Risk
 Models for binary outcomes}
 \usage{
-sampsizeval(p, c, se_c, se_cs, se_cl)
+sampsizeval(p, c, se_c, se_cs, se_cl, c_ni = FALSE, cs_ni = TRUE, cl_ni = TRUE)
 }
 \arguments{
 \item{p}{(numeric) The anticipated outcome prevalence, a real number between
@@ -23,6 +23,18 @@ Calibration Slope}
 
 \item{se_cl}{(numeric) The required standard error of the estimated
 Calibration in the Large}
+
+\item{c_ni}{(logical) Numerical integration is used for the calculations for
+C-statistic (TRUE) or the closed-form expression (FALSE). Default
+value is 'FALSE'.}
+
+\item{cs_ni}{(logical) Numerical integration is used for the calculations for
+Calibration Slope (TRUE) or the closed-form expression (FALSE).
+Default value is 'TRUE'}
+
+\item{cl_ni}{(logical) Numerical integration is used for the calculations for
+Calibration in the Large (TRUE) or the closed-form expression
+(FALSE). Default value is 'TRUE'.}
 }
 \value{
 size_c: the sample size based on the C-statistic,
@@ -46,7 +58,7 @@ standard error for C, CS and CL.
 The sample size calculations are valid under the assumption of marginal
 normality for the distribution of the linear predictor.The default sample
 size calculation based on C uses the closed-form expression in equation (9)
-as proposed by \emph{Pavlou et al. (2021)}.This is quick to run and accurate for
+as proposed by \emph{Pavlou et al. (2021)}. This is quick to run and accurate for
 all values of anticipated C and p.The default sample size calculations based
 on CS and CL use the formulae (12) and (13) that require the use of numerical
 integration.These are also quick to run. The parameters of the assumed Normal

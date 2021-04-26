@@ -1,20 +1,8 @@
 
 
-size_cil_ni <- function(p, c, se_cl) {
+size_cl_ni <- function(mu, sigma, se_cl) {
 
   varcl <- se_cl^2
-
-  if (c <= 0.8) {
-    fc      <- 1.00
-    sigma_c <- sqrt(2) * stats::qnorm(c) * fc
-    mu      <- 0.5 * (2 * p - 1) * (sigma_c ^ 2) + log(p / (1 - p))
-    sigma   <- sqrt((sigma_c^2) * (1 + p * (1 - p) * (sigma_c^2)))
-  } else {
-
-    correct <- tune_mu_sigma(p, c)
-    mu      <- correct$mu
-    sigma   <- correct$sigma
-  }
 
 
   # Function for numerical integration
@@ -26,7 +14,6 @@ size_cil_ni <- function(p, c, se_cl) {
 
   n            <- 1 / varcl * (1 / e_omega)
   n            <- ceiling(n)
-  events       <- ceiling(n * p)
 
   return(n)
 }

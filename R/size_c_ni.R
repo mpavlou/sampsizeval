@@ -1,24 +1,8 @@
 
-size_c_ni <- function(p, c, se_c) {
+size_c_ni <- function(mu, sigma, se_c) {
 
   varc <- se_c^2
 
-  # Input values for mu and sigma^2 assuming marginal normality
-  # factor fc can be used to fine-tuned this when C is too high (>0.8),
-  # not used here
-
-
-  if (c <= 0.8) {
-    fc      <- 1.00
-    sigma_c <- sqrt(2) * stats::qnorm(c) * fc
-    mu      <- 0.5 * (2 * p - 1) * (sigma_c^2) + log(p / (1 - p))
-    sigma   <- sqrt((sigma_c^2) * (1 + p * (1 - p) * (sigma_c^2)))
-  } else {
-
-    correct <- tune_mu_sigma(p, c)
-    mu      <- correct$mu
-    sigma   <- correct$sigma
-  }
 
   # For the numerical integration method a distribution for the linear predictor
   # needs to be assumed. In this calculation we assume marginal normality for
@@ -34,54 +18,28 @@ size_c_ni <- function(p, c, se_c) {
   f0 <- function(x, mu, s) 1 / (2 * s**2 * pi)**0.5 * exp(- (x - mu)**2 /
                                (2 * s**2)) * (1 - (1 + exp(-x)) ^ (-1))
 
-  # The following functions are used to calculate P(eta_0<eta_1)
-  # and P(eta_1<eta_0)
 
-  intf0   <- function(upper) {
-    prob  <- NULL
-    denom <- stats::integrate(f0, -Inf, Inf, mu = mu, s = sigma)$value
-    for (i in seq(upper)) {
-      prob[i] <- stats::integrate(f0, -Inf, upper = upper[i], mu = mu,
-                     s = sigma)$value / denom
-
-    }
-    prob
-    }
-
-  intf1  <- function(upper) {
-    prob  <- NULL
-    denom <- stats::integrate(f1, -Inf, Inf, mu = mu, s = sigma)$value
-    for (i in seq(upper)) {
-      prob[i] <- stats::integrate(f1, -Inf, upper = upper[i], mu = mu,
-                      s = sigma)$value / denom
-
-    }
-    prob
-    }
-
-  #We now get the cumulative distribution of eta_0 and eta1
+  # We now get the cumulative distribution of eta_0 and eta1
   # A vector of values to cover the range of possible values of eta_0
-  #and eta_0
+  # and eta_0
 
-  #Pre-processing to narrow down the integration range
+  # Pre-processing to narrow down the integration range
 
-  x <- seq(- 14, 14, 0.01)
+  x <- seq(- 14, 14, 0.1)
 
   p_eta0 <- NULL ; p_eta1 <- NULL
 
   #Numerical integration to get P(eta_0<x) and P(eta_1<x)
   #Equations for Gail and Pfeiffer
   denom1 <- stats::integrate(f1, - Inf, Inf, mu = mu, s = sigma,
-                             subdivisions = 10000L)$value
+                             subdivisions = 1000L)$value
   denom0 <- stats::integrate(f0, - Inf, Inf, mu = mu, s = sigma,
                              subdivisions = 1000L)$value
 
-  for (i in seq(x)) {
-    p_eta1[i] <- stats::integrate(f1, - Inf, x[i], mu = mu, s = sigma)$value /
-             denom1
-    p_eta0[i] <- stats::integrate(f0, - Inf, x[i], mu = mu, s = sigma)$value /
-             denom0
-  }
+  p_eta1 <- sapply(x,function(u) integrate(f1, lower = -Inf, mu = mu,
+                        s = sigma,upper = u)$value)/denom1
+  p_eta0 <- sapply(x,function(u) integrate(f0, lower = -Inf, mu = mu,
+                        s = sigma,upper = u)$value)/denom0
 
   d0 <- data.frame(cbind(x, p_eta0))
   d1 <- data.frame(cbind(x, p_eta1))
@@ -102,40 +60,56 @@ size_c_ni <- function(p, c, se_c) {
   p_eta1 <- NULL
 
   #Numerical integration to get P(eta_0<x) and P(eta_1<x)
-  #Equations for Gail and Pfeiffer (2005)
 
-  for (i in seq(x)) {
-    p_eta1[i] <- stats::integrate(f1, -Inf, x[i], mu = mu, s = sigma,
-                                  subdivisions = 1000L)$value / denom1
-    p_eta0[i] <- stats::integrate(f0, -Inf, x[i], mu = mu, s = sigma,
-                                  subdivisions = 1000L)$value / denom0
-  }
+  #Equations from Gail and Pfeiffer (2005)
+
+
+  p_eta1 <- sapply(x,function(u) integrate(f1, lower = -Inf, mu = mu,
+                                           s = sigma,upper = u)$value)/denom1
+  p_eta0 <- sapply(x,function(u) integrate(f0, lower = -Inf, mu = mu,
+                                           s = sigma,upper = u)$value)/denom0
 
   p_eta0[1] <- 0
   p_eta1[1] <- 0
   if (p_eta0[length(x)] != 1) p_eta0[length(x)] <- 1
   if (p_eta1[length(x)] != 1) p_eta1[length(x)] <- 1
 
-
+  x<-round(x,5)
+  d0<-data.frame(x,p_eta0)
+  d1<-data.frame(x,p_eta1)
 
 
   # Inverse CDF to sample from the distribution of eta_0 and eta_1
 
-  nsamps   <- 1000000
+  set.seed(2)
+  nsamps <- 2000000
+
   u        <- sort(stats::runif(nsamps))
   eta0     <- pracma::interp1(x = sort(p_eta0), y = x, xi = u)
+  eta0     <- sort(plyr::round_any(eta0,step))
+  eta0     <- round(eta0,5)
+  eta0s<-data.frame(eta0)
+
 
   u        <- sort(stats::runif(nsamps))
   eta1     <- pracma::interp1(x = sort(p_eta1), y = x, xi = u)
-
+  eta1     <- sort(plyr::round_any(eta1,step))
+  eta1     <- round(eta1,5)
+  eta1s    <- data.frame(eta1)
 
   #Note: Distribution of eta_0 and eta_1 is approximately Normal, as expected
 
 
+  #system.quant(prob <- sapply(eta1,function(u) integrate(f0, lower = -Inf, mu = mu,
+  #                                        s = sigma,upper = u)$value)/denom0)
+
   # Compute EK=E(P(eta_0<eta_1))
-  prob  <-  NULL
-  prob  <-  intf0(eta1)
+
+  merged <- dplyr::left_join(eta1s,d0,by=c("eta1"="x"))
+  prob   <- merged$p_eta0
   e_k2  <-  mean(prob^2)
+
+  #prob <- mean(ifelse(sample(eta0,nsamps)<sample(eta1,nsamps),1,0))
 
   #Calculate  the true C and p for these values of mu and sigma
   c_ni      <- mean(prob)
@@ -144,15 +118,23 @@ size_c_ni <- function(p, c, se_c) {
   p_true    <- p_ni
 
   # Compute EG=E(P(eta_1<eta_0))
-  prob <- NULL
-  prob <- intf1(eta0)
-  e_g2 <- mean((1 - prob)^2)
+  #system.quant(prob <- sapply(eta0,function(u) integrate(f1, lower = -Inf, mu = mu,
+                                                      #  s = sigma,upper = u)$value)/denom1)
+
+  # without additional integration
+
+  merged <- dplyr::left_join(eta0s,d1,by=c("eta0"="x"))
+  prob   <- merged$p_eta1
+  e_g2   <- mean((1 - prob)^2)
 
   #Enter in the final formula
   n         <- (1 / varc) * ((1 - p_true) * e_k2 + p_true * e_g2 - c_true^2) /
                (p_true * (1 - p_true))
   n         <- ceiling(n)
-  events    <- ceiling(n * p)
+  #events    <- ceiling(n * p)
 
   return(n)
 }
+
+#system.time(a<-sampsizeval(p=0.1, c=0.75, se_c=0.025, se_cs =0.1, se_cl = 0.1,c_ni=TRUE))
+#a
