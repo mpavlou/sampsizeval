@@ -53,9 +53,9 @@ size calculation based on C uses the closed-form expression in equation (9)
 as proposed by \emph{Pavlou et al. (2021)}. This is quick to run and accurate for
 all values of anticipated C and p.The default sample size calculations based
 on CS and CL use the formulae (12) and (13) that require the use of numerical
-integration.These are also quick to run. The parameters of the assumed Normal
+integration. The parameters of the assumed Normal
 distribution used in the latter two expressions are obtained using equations
-(7) and (8) and are fine-tuned for values of anticipated C>=0.8.
+(7) and (8) and are fine-tuned for values of anticipated C>0.8.
 
 Sample size calculations from the estimator based on C that uses numerical
 integration  and from the closed-form estimators based on CS and CL that make
