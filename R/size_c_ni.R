@@ -36,9 +36,9 @@ size_c_ni <- function(mu, sigma, se_c) {
   denom0 <- stats::integrate(f0, - Inf, Inf, mu = mu, s = sigma,
                              subdivisions = 1000L)$value
 
-  p_eta1 <- sapply(x,function(u) integrate(f1, lower = -Inf, mu = mu,
+  p_eta1 <- sapply(x,function(u) stats::integrate(f1, lower = -Inf, mu = mu,
                         s = sigma,upper = u)$value)/denom1
-  p_eta0 <- sapply(x,function(u) integrate(f0, lower = -Inf, mu = mu,
+  p_eta0 <- sapply(x,function(u) stats::integrate(f0, lower = -Inf, mu = mu,
                         s = sigma,upper = u)$value)/denom0
 
   d0 <- data.frame(cbind(x, p_eta0))
@@ -64,9 +64,9 @@ size_c_ni <- function(mu, sigma, se_c) {
   #Equations from Gail and Pfeiffer (2005)
 
 
-  p_eta1 <- sapply(x,function(u) integrate(f1, lower = -Inf, mu = mu,
+  p_eta1 <- sapply(x,function(u) stats::integrate(f1, lower = -Inf, mu = mu,
                                            s = sigma,upper = u)$value)/denom1
-  p_eta0 <- sapply(x,function(u) integrate(f0, lower = -Inf, mu = mu,
+  p_eta0 <- sapply(x,function(u) stats::integrate(f0, lower = -Inf, mu = mu,
                                            s = sigma,upper = u)$value)/denom0
 
   p_eta0[1] <- 0
