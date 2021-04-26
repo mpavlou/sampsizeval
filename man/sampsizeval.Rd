@@ -6,7 +6,7 @@
 \title{sampsizeval: Estimation of Required Sample Size for Validation of Risk
 Models for binary outcomes}
 \usage{
-sampsizeval(p, c, se_c, se_cs, se_cl, c_ni = FALSE, cs_ni = TRUE, cl_ni = TRUE)
+sampsizeval(p, c, se_c, se_cs, se_cl, c_ni = FALSE)
 }
 \arguments{
 \item{p}{(numeric) The anticipated outcome prevalence, a real number between
@@ -27,14 +27,6 @@ Calibration in the Large}
 \item{c_ni}{(logical) Numerical integration is used for the calculations for
 C-statistic (TRUE) or the closed-form expression (FALSE). Default
 value is 'FALSE'.}
-
-\item{cs_ni}{(logical) Numerical integration is used for the calculations for
-Calibration Slope (TRUE) or the closed-form expression (FALSE).
-Default value is 'TRUE'}
-
-\item{cl_ni}{(logical) Numerical integration is used for the calculations for
-Calibration in the Large (TRUE) or the closed-form expression
-(FALSE). Default value is 'TRUE'.}
 }
 \value{
 size_c: the sample size based on the C-statistic,

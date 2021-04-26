@@ -39,13 +39,6 @@
 #' @param c_ni (logical) Numerical integration is used for the calculations for
 #'             C-statistic (TRUE) or the closed-form expression (FALSE). Default
 #'             value is 'FALSE'.
-#' @param cs_ni (logical) Numerical integration is used for the calculations for
-#'             Calibration Slope (TRUE) or the closed-form expression (FALSE).
-#'             Default value is 'TRUE'
-#' @param cl_ni (logical) Numerical integration is used for the calculations for
-#'             Calibration in the Large (TRUE) or the closed-form expression
-#'             (FALSE). Default value is 'TRUE'.
-
 #'
 #' @return size_c: the sample size based on the C-statistic,
 #' @return size_cs: the sample size based on the Calibration Slope,
@@ -70,8 +63,7 @@
 #' Estimation of required sample size for external validation of risk models
 #' for binary outcomes, SMMR (2021). doi:10.1177/09622802211007522
 #'
-sampsizeval <- function(p, c, se_c, se_cs, se_cl, c_ni=FALSE, cs_ni=TRUE,
-                        cl_ni=TRUE) {
+sampsizeval <- function(p, c, se_c, se_cs, se_cl, c_ni=FALSE) {
 
 
 if (missing(p) == TRUE) stop("Please enter the anticipated prevalence")
@@ -110,10 +102,10 @@ if (c <= 0.8) {
 
 if (c_ni==TRUE)  size_c  <- size_c_ni(mu = mu, sigma = sigma, se_c = se_c) else
                  size_c  <- size_c_app(p = p, c = c, se_c = se_c)
-if (cs_ni==TRUE) size_cs <- size_cs_ni(mu = mu, sigma = sigma, se_cs = se_cs) else
-                 size_cs <- size_cs_app(p = p, c = c, se_cs = se_cs)
-if (cl_ni==TRUE) size_cl <- size_cl_ni(mu = mu, sigma = sigma, se_cl = se_cl) else
-                 size_cl <- size_cl_app(p = p, c = c, se_cl = se_cl)
+size_cs <- size_cs_ni(mu = mu, sigma = sigma, se_cs = se_cs)
+
+size_cl <- size_cl_ni(mu = mu, sigma = sigma, se_cl = se_cl)
+
 
 size_final <- max(size_c, size_cs, size_cl)
 
