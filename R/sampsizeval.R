@@ -38,10 +38,10 @@
 #' Calibration in the Large
 #' @param c_ni (logical) Numerical integration is used for the calculations for
 #'             C-statistic (TRUE) or the closed-form expression (FALSE). Default
-#'             value is 'FALSE'.
+#'             value is 'FALSE'
 #'
-#' @return size_c: the sample size based on the C-statistic,
-#' @return size_cs: the sample size based on the Calibration Slope,
+#' @return size_c: the sample size based on the C-statistic
+#' @return size_cs: the sample size based on the Calibration Slope
 #' @return size_cl: the sample size based on the Calibration in the Large
 #' @return size_recommended: the final sample size recommendation (the largest
 #' of the three above)

@@ -4,7 +4,7 @@
 \name{sampsizeval}
 \alias{sampsizeval}
 \title{sampsizeval: Estimation of Required Sample Size for Validation of Risk
-Models for binary outcomes}
+Models for Binary Outcomes}
 \usage{
 sampsizeval(p, c, se_c, se_cs, se_cl, c_ni = FALSE)
 }
@@ -26,12 +26,12 @@ Calibration in the Large}
 
 \item{c_ni}{(logical) Numerical integration is used for the calculations for
 C-statistic (TRUE) or the closed-form expression (FALSE). Default
-value is 'FALSE'.}
+value is 'FALSE'}
 }
 \value{
-size_c: the sample size based on the C-statistic,
+size_c: the sample size based on the C-statistic
 
-size_cs: the sample size based on the Calibration Slope,
+size_cs: the sample size based on the Calibration Slope
 
 size_cl: the sample size based on the Calibration in the Large
 
