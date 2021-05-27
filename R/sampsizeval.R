@@ -21,10 +21,7 @@
 #' (7) and (8) and are fine-tuned for values of anticipated C>0.8.
 #'
 #' Sample size calculations from the estimator based on C that uses numerical
-#' integration  and from the closed-form estimators based on CS and CL that make
-#' the use of approximations, can be obtained from functions 'size_c_ni',
-#' 'size_cs_app' and 'size_cl_app'.
-#'
+#' integration can also be obtained.
 #'
 #' @param p (numeric) The anticipated outcome prevalence, a real number between
 #' 0 and 1

@@ -81,7 +81,6 @@ size_c_ni <- function(mu, sigma, se_c) {
 
   # Inverse CDF to sample from the distribution of eta_0 and eta_1
 
-  set.seed(2)
   nsamps <- 2000000
 
   u        <- sort(stats::runif(nsamps))

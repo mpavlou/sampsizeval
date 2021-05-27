@@ -1,5 +1,5 @@
 Package: sampsizeval
-Title: Sample Size Calculations for Validation of Risk Models with Binary Outcomes
+Title: Sample Size for Validation of Risk Models with Binary Outcomes
 Version: 1.0.0.0
 Authors@R: 
     person(given = "Menelaos",

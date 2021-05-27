@@ -3,8 +3,7 @@ actual_values <- function(p, c, fc = 1) {
   nevents <- 400000
   n       <- nevents / p
 
-  quickcstat<-function(y,pred,seed=1){
-    set.seed(seed)
+  quickcstat<-function(y,pred){
     casepred=pred[y==1]
     conpred=pred[y==0]
     conpred=conpred[sample(length(conpred),length(casepred),replace=FALSE)]
@@ -23,7 +22,7 @@ actual_values <- function(p, c, fc = 1) {
   #cstat <- pROC::roc(y, eta, quiet = TRUE, ci = FALSE)
   #c_est <- as.vector(cstat$auc)
 
-  c_est <- quickcstat(y,eta,seed=1)
+  c_est <- quickcstat(y,eta)
 
   out   <- list("p_actual" = round(mean(y), 3),
                   "c_actual" = round(c_est, 3),
