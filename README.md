@@ -20,11 +20,11 @@ validation of risk models for binary outcomes.
 
 ## Installation
 
-<!-- You can install the released version of sampsizeval from [CRAN](https://CRAN.R-project.org) with: -->
+You can install the released version of sampsizeval from [CRAN](https://CRAN.R-project.org) with:
 
-<!-- ``` r -->
-<!-- install.packages("sampsizeval") -->
-<!-- ``` -->
+``` r
+install.packages("sampsizeval")
+```
 
 The development version can be installed from [GitHub](https://github.com/mpavlou) with:
 
