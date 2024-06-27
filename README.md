@@ -11,8 +11,6 @@ output:
 # sampsizeval
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.com/mpavlou/sampsizeval.svg?branch=master)](https://travis-ci.com/mpavlou/sampsizeval)
-[![R-CMD-check](https://github.com/mpavlou/sampsizeval/workflows/R-CMD-check/badge.svg)](https://github.com/mpavlou/sampsizeval/actions)
 <!-- badges: end -->
 
 The purpose of **sampsizeval** is to perform sample size calculations for the
