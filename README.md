@@ -18,7 +18,7 @@ output:
 This package relates to the article
 
 #### "An evaluation of sample size requirements for developing risk prediction models with binary outcomes"
-published in the BMC Medical Research MethodologyL <div class="NodiCopyInline">https://doi.org/10.1186/s12874-024-02268-5</div>
+published in the BMC Medical Research Methodology <div class="NodiCopyInline">https://doi.org/10.1186/s12874-024-02268-5</div>
 
 
 The purpose of **sampsizeval** is to perform sample size calculations for the
